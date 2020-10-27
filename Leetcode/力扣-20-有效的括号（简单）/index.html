@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,7 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2020 - 小树苗博客</title>
+  <title>力扣-20-有效的括号（简单） - 小树苗博客</title>
   
 
   
@@ -307,7 +305,7 @@
     <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -383,552 +381,234 @@
         
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC%E6%95%99%E7%A8%8B/">
-        油猴插件安装脚本教程
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        油猴脚本安装教程=&gt;https://www.xiaosm.cn/archives/4
 
-脚本探索大门https://greasyfork.org/zh-CN
 
-先推荐一个脚本——创新创业就业网课小助手当然其他的脚本也可以在这个网站中找到在这里面可以搜到你可能想要的东西
-
-打开一个你想要安装的脚本（这里以上面推荐的网课助手为例），点击安装此脚本，在弹出的页面再点安装就好了，打开对应的网站...
-      
+  
+  <div class="article-meta" id="top">
     
+    
+    
+      <h1 class="title">
+        力扣-20-有效的括号（简单）
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://q1.qlogo.cn/g?b=qq&nk=1282381264&s=640">
+    <p>小羊</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Leetcode/">Leetcode</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2020-10-25</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年10月25日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="力扣-20-有效的括号（简单）" data-path="/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-parentheses/">20. 有效的括号</a></p>
+<p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]‘ 的字符串，判断字符串是否有效。<br>有效字符串需满足：<br>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串。  </p>
+<p>示例 1:<br>输入: “()”<br>输出: true<br>示例 2:<br>输入: “()[]{}”<br>输出: true<br>示例 3:<br>输入: “(]“<br>输出: false<br>示例 4:<br>输入: “([)]“<br>输出: false<br>示例 5:<br>输入: “{[]}”<br>输出: true  </p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-parentheses">https://leetcode-cn.com/problems/valid-parentheses</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+</blockquote>
+<h2 id="第一种解法"><a href="#第一种解法" class="headerlink" title="第一种解法"></a>第一种解法</h2><p>这题看示例就能明白，就是找对称，括号必须是成对出现，如果不是就返回，闭合括号里的括号也必须是成对且对应。如**([)]**因为第一个闭合的 ) 里的括号不成对且不对应，返回false<br>所以这个题我们可以考虑使用栈来存储，左括号压入栈，右括号和栈顶的左括号匹配，对不上返回fasle，匹配结束判断栈是否为空（因为括号成对出现）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">char</span> c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            c = s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;(&#x27;</span> || c == <span class="string">&#x27;[&#x27;</span> || c == <span class="string">&#x27;&#123;&#x27;</span>)</span><br><span class="line">                <span class="comment">// 左括号入栈</span></span><br><span class="line">                stack.push(c);</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 右括号判断栈顶的括号是否匹配</span></span><br><span class="line">                <span class="keyword">if</span> (stack.empty())</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">&#x27;)&#x27;</span> &amp;&amp; stack.pop() != <span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">&#x27;]&#x27;</span> &amp;&amp; stack.pop() != <span class="string">&#x27;[&#x27;</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">&#x27;&#125;&#x27;</span> &amp;&amp; stack.pop() != <span class="string">&#x27;&#123;&#x27;</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.empty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第二种解法"><a href="#第二种解法" class="headerlink" title="第二种解法"></a>第二种解法</h2><p>括号是像洋葱那样一层一层的包裹起来的（如果你愿意一层一层的剥开我的心），那么最中间的绝对是一对且紧挨这的，如 **({[]})**，所以我们可以利用这个特性进行替换，最后只要长度大于0就说明是单个括号存在的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (s.indexOf(<span class="string">&quot;()&quot;</span>) != -<span class="number">1</span> || s.indexOf(<span class="string">&quot;[]&quot;</span>) != -<span class="number">1</span></span><br><span class="line">            || s.indexOf(<span class="string">&quot;&#123;&#125;&quot;</span>) != -<span class="number">1</span>) &#123;</span><br><span class="line">            s = s.replace(<span class="string">&quot;()&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">            s = s.replace(<span class="string">&quot;[]&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">            s = s.replace(<span class="string">&quot;&#123;&#125;&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.trim().length() == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>虽然速度慢了点，但是也可以AC了</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC%E6%95%99%E7%A8%8B/'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.xiaosm.cn/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/>https://www.xiaosm.cn/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-27T10:23:46+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年10月27日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6-%E6%89%A9%E5%B1%95-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
-        油猴插件(扩展)安装教程
-      </a>
-    </h2>
-  
-  <div class='md'>
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        油猴插件是什么就不多说了，这不是今天的主题
-1.Chrome安装如果你有梯子可以直接在谷歌插件商店安装https://chrome.google.com/webstore/category/extensions如果你没有，请看下面
-首先下载Tampermonkey这个东西需要梯子，我这里直接提供下载链接，点击即下https://www.zhoupb.com/Tampermonkey_exte...
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.xiaosm.cn/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/&title=力扣-20-有效的括号（简单） - 小树苗博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.xiaosm.cn/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/&title=力扣-20-有效的括号（简单） - 小树苗博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.xiaosm.cn/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/&title=力扣-20-有效的括号（简单） - 小树苗博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-25</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6-%E6%89%A9%E5%B1%95-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/Java/java%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88PDF%E6%96%87%E4%BB%B6/">
-        java实现在线预览PDF文件
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        最近碰到一个需求，要求实现office文件和PDF文件能够实现实时预览的效果
-最后经过查找发现现在有新的头部信息application/pdf
-在后端读取文件以后设置头**Content-Type: application/pdf**
 
-现在主流浏览器均支持这种资源的MIME类型 ( 测试了ie会直接进行下载 )
-对于office文件我们就可以将它转变为pdf文件进行输出，当然这会对服务器的...
+
+        
       
-    
+    </div>
   </div>
+
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java/">Java</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/Java/java%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88PDF%E6%96%87%E4%BB%B6/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
   
 
-</div>
-
-          </div>
-        
+  
+    <div class="prev-next">
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">
-        排序算法-计数排序
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-计数排序是一个非基于比较的排序算法，该算法于1954年由 Harold H. Seward 提出。它的优势在于在对一定范围内的整数排序时，它的复杂度为Ο(n+k)（其中k是整数的范围），快于任何比较排序算法。当然这是一种牺牲空间换取时间的做法，而且当O(k)&gt;O(n*log(n))的时候其效率反而不如基于比较的排序（基于比较的排序的时间复杂度在理论上的下限是O(n*log(n)), ...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/">数据结构&算法</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/Leetcode/%E5%8A%9B%E6%89%A3-1111-%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%B5%8C%E5%A5%97%E6%B7%B1%E5%BA%A6/">
-        力扣-1111-有效括号的嵌套深度
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-1111. 有效括号的嵌套深度
-题目太长了，我就不贴上来了  
-来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-欢迎来到一日一题的阅读理解，刚开始看到这个题，...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Leetcode/">Leetcode</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/Leetcode/%E5%8A%9B%E6%89%A3-1111-%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%B5%8C%E5%A5%97%E6%B7%B1%E5%BA%A6/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/Leetcode/%E5%8A%9B%E6%89%A3-912-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88%E4%B8%AD%E7%AD%89%EF%BC%89/">
-        力扣-912-排序数组（中等）
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
+        <a class='prev' href='/Leetcode/%E5%8A%9B%E6%89%A3-912-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88%E4%B8%AD%E7%AD%89%EF%BC%89/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>力扣-912-排序数组（中等）</p>
+          <p class='content'>
 给定一个整数数组 nums，将该数组升序排列。
 示例 1：输入：[5,2,3,1]输出：[1,2,3,5]  
 示例 2：输入：[5,1,1,2,0,0]输出：[0,0,1,1,2,5]  
-提示：1 &lt;= A.length &lt;= 10000-50000 &lt;= A[i] &lt;= 50000  
-来源：力扣（LeetCode）链接：https://leetcode-cn...
+...</p>
+        </a>
       
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Leetcode/">Leetcode</a>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/Leetcode/%E5%8A%9B%E6%89%A3-912-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88%E4%B8%AD%E7%AD%89%EF%BC%89/'>
-            阅读全文
-          </a>
-        </div>
+        <a class='next' href='/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/'>
+          <p class='title'>前缀表达式转后缀表达<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>1.什么是后缀表达式
+百度百科：实现逆波兰式的算法，难度并不大，但为什么要将看似简单的中缀表达式转换为复杂的逆波兰式？原因就在于这个简单是相对人类的思维结构来说的，对计算机而言中序表达式是非常复...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/">
-        力扣-20-有效的括号（简单）
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-20. 有效的括号
-给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]‘ 的字符串，判断字符串是否有效。有效字符串需满足：左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串。  
-示例 1:输入: “()”输出: true示例 2:输入: “()[]{}”输出: true示例 3:输入: “(]“输出: false示例 4:输入: “(...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Leetcode/">Leetcode</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/">
-        前缀表达式转后缀表达
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        1.什么是后缀表达式
-百度百科：实现逆波兰式的算法，难度并不大，但为什么要将看似简单的中缀表达式转换为复杂的逆波兰式？原因就在于这个简单是相对人类的思维结构来说的，对计算机而言中序表达式是非常复杂的结构。相对的，逆波兰式在计算机看来却是比较简单易懂的结构。因为计算机普遍采用的内存结构是栈式结构，它执行先进后出的顺序。
-
-后缀表达式就通过一定的排列顺序，将一个我们平时一眼就能看明白的数学算式转...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/">数据结构&算法</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/Python/%E5%B0%86%E7%94%B5%E8%84%91%E4%B8%8A%E5%A4%8D%E5%88%B6%E7%9A%84%E6%96%87%E6%9C%AC%E6%8E%A8%E9%80%81%E7%BB%99iPhone/">
-        将电脑上复制的文本推送给iPhone
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        由于博主用的不是Mac，所以体验不到iCloud的云剪贴板功能
-有时候电脑上复制的链接或者文本需要在手机上操作，就需要经过聊天工具转发，很是繁琐。就用Python写了个工具，配合Bark使用，达到电脑给手机发信息的效果
-手机安装Bark直接在App Store搜索Bark就好了App Store链接
-复制Bark中的地址
-替换代码中的url12345678910111213141516171...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Python/">Python</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/Python/%E5%B0%86%E7%94%B5%E8%84%91%E4%B8%8A%E5%A4%8D%E5%88%B6%E7%9A%84%E6%96%87%E6%9C%AC%E6%8E%A8%E9%80%81%E7%BB%99iPhone/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/Vue/%E5%85%B3%E4%BA%8EVue%E4%B8%AD%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%A4%B1%E6%95%88%E5%92%8Celement-ui%E4%B8%ADresetFields-%E6%B2%A1%E6%9C%89%E6%95%88%E6%9E%9C%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
-        关于Vue中双向绑定失效和element-ui中resetFields()没有效果的解决方法
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        双向绑定失效起因是我的表单是写在Dialog中的，然后有些数据是需要从后台获取然后再重新赋值上去，因为我有一个字段是数组，且需要从后台获取，所以就出现了双向绑定没有失效了
-查阅了下文档，发现在深入响应式原理一文中
-
-检测变化的注意事项由于 JavaScript 的限制，Vue 不能检测数组和对象的变化。尽管如此我们还是有一些办法来回避这些限制并保证它们的响应性。
-
-大概就是说，我对响应式 P...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Vue/">Vue</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/Vue/%E5%85%B3%E4%BA%8EVue%E4%B8%AD%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%A4%B1%E6%95%88%E5%92%8Celement-ui%E4%B8%ADresetFields-%E6%B2%A1%E6%9C%89%E6%95%88%E6%9E%9C%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 2
-        </p>
-        
-          <a class="next" rel="next" href="/archives/2020/page/2/">
-            <section class="post next white-box shadow">
-              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
+  </article>
 
 
-	
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -936,151 +616,28 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">小树苗博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Java/" href="/categories/Java/"
-            id="categoriesJava"
-            ><div class='name'>Java</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Leetcode/" href="/categories/Leetcode/"
-            id="categoriesLeetcode"
-            ><div class='name'>Leetcode</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Linux/" href="/categories/Linux/"
-            id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Python/" href="/categories/Python/"
-            id="categoriesPython"
-            ><div class='name'>Python</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Vue/" href="/categories/Vue/"
-            id="categoriesVue"
-            ><div class='name'>Vue</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/"
-            id="categoriesE695B0E68DAEE7BB93E69E84-E7AE97E6B395"
-            ><div class='name'>数据结构&算法</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E8%A7%A3%E6%B3%95"><span class="toc-text">第一种解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E8%A7%A3%E6%B3%95"><span class="toc-text">第二种解法</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Vue/" style="font-size: 14px; color: #999">Vue</a> <a href="/tags/java/" style="font-size: 14px; color: #999">java</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
         
@@ -1090,8 +647,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="力扣-20-有效的括号（简单）";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
