@@ -19,9 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>前缀表达式转后缀表达 - 小树苗博客</title>
-  
-    <meta name="keywords" content="java,算法">
+  <title>力扣-20-有效的括号（简单） - 小树苗博客</title>
   
 
   
@@ -393,7 +391,7 @@
     
     
       <h1 class="title">
-        前缀表达式转后缀表达
+        力扣-20-有效的括号（简单）
       </h1>
       <div class='new-meta-box'>
         
@@ -413,7 +411,7 @@
   <div class='new-meta-item category'>
     <a class='notlink'>
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/">数据结构&算法</a>
+      <a class="category-link" href="/categories/Leetcode/">Leetcode</a>
     </a>
   </div>
 
@@ -435,7 +433,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="前缀表达式转后缀表达" data-path="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/">
+      <div id="lc-pv" data-title="力扣-20-有效的括号（简单）" data-path="/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -452,53 +450,18 @@
 
 
   
-  <h2 id="1-什么是后缀表达式"><a href="#1-什么是后缀表达式" class="headerlink" title="1.什么是后缀表达式"></a>1.什么是后缀表达式</h2><blockquote>
-<p>百度百科：<br><br>实现逆波兰式的算法，难度并不大，但为什么要将看似简单的中缀表达式转换为复杂的逆波兰式？<br>原因就在于这个简单是相对人类的思维结构来说的，对计算机而言中序表达式是非常复杂的结构。<br>相对的，逆波兰式在计算机看来却是比较简单易懂的结构。因为计算机普遍采用的内存结构是栈式结构，它执行先进后出的顺序。</p>
+  <blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-parentheses/">20. 有效的括号</a></p>
+<p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]‘ 的字符串，判断字符串是否有效。<br>有效字符串需满足：<br>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串。  </p>
+<p>示例 1:<br>输入: “()”<br>输出: true<br>示例 2:<br>输入: “()[]{}”<br>输出: true<br>示例 3:<br>输入: “(]“<br>输出: false<br>示例 4:<br>输入: “([)]“<br>输出: false<br>示例 5:<br>输入: “{[]}”<br>输出: true  </p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-parentheses">https://leetcode-cn.com/problems/valid-parentheses</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
 </blockquote>
-<p>后缀表达式就通过一定的排列顺序，将一个我们平时一眼就能看明白的数学算式转变为机器能够读懂的表达式。<br><br>例如：</p>
-<ul>
-<li><code>10 + 5 * 3</code>转变为后缀表达式就是<code>10 5 3 * +</code></li>
-<li><code>(5 + 3) * 2</code>转变为后缀表达式就是<code>5 3 + 2 *</code></li>
-</ul>
-<h2 id="2-构建后缀表达式"><a href="#2-构建后缀表达式" class="headerlink" title="2.构建后缀表达式"></a>2.构建后缀表达式</h2><h3 id="2-1-前缀表达式转后缀表达式的规则"><a href="#2-1-前缀表达式转后缀表达式的规则" class="headerlink" title="2.1.前缀表达式转后缀表达式的规则"></a>2.1.前缀表达式转后缀表达式的规则</h3><p>我们先用<code>5 - ( 3 + 4 ) * 2 / 7</code>来进行转换</p>
-<ol>
-<li>先构造一个模拟栈 stack，和一个模拟队列 queue，栈中存放的是临时运算符，队列存放的就是后缀表达式</li>
-<li>首先取出第一个字符 <code>5</code>，因为是数字，我们直接入队列。<br>队列中现在就是<code>&#123; 5 &#125;</code></li>
-<li>第二个字符是运算符 <code>-</code>，由于当前栈里没有元素，直接入栈。<br>栈中现在就是<code>[ - ]</code></li>
-<li>第三个字符是运算符 <code>(</code>，由于是开括号，运算级别最高，所以直接入栈。<br>栈中现在就是<code>[ -, ( ]</code></li>
-<li>第四个字符是数字 <code>3</code>，直接入队列。<br>队列中现在就是<code>&#123; 5, 3 &#125;</code></li>
-<li>第五个字符是运算符 <code>+</code>，由于栈顶是开括号，直接入栈。<br>栈中现在就是<code>[ -, (, + ]</code></li>
-<li>第六个字符是数字<code>4</code>，直接入队列。<br>队列中现在就是<code>&#123; 5, 3, 4 &#125;</code></li>
-<li>第七个字符是闭合（右）括号，这时就要将栈中所有运算符弹出来存进队列，结束条件就是当栈顶碰到开括号，所以循环以后栈为空。注意：开括号也需要弹出来，但是不用入队列<ul>
-<li>队列中现在就是<code>&#123; 5, 3, 4, + &#125;</code>。栈中现在就是<code>[ - ]</code></li>
-</ul>
-</li>
-<li>第八个字符是运算符<code>*</code>，和栈顶运算符进行比较，当前等级比栈顶的等级高，入栈。<br>栈中现在就是<code>[ -, * ]</code></li>
-<li>第九个字符是数字<code>2</code>，直接入队列。队列中现在就是<code>&#123; 5, 3, 4, +, 2&#125;</code></li>
-<li>第十个字符是运算符<code>/</code>，和栈顶运算符进行比较，当前等级和栈顶同等级。<ul>
-<li>栈顶弹出入队列。<code>&#123; 5, 3, 4, +, 2, *&#125;</code>。<br>栈中现在就是<code>[ - ]</code></li>
-<li>再继续和栈顶运算符（<code>-</code>）比较，当前等级比栈顶的等级高，入栈。<br>栈中现在就是<code>[ -, / ]</code></li>
-</ul>
-</li>
-<li>第十一个字符是数字<code>7</code>，直接入队列。<br>队列中现在就是<code>&#123; 5, 3, 4, +, 2, *, 7&#125;</code></li>
-<li>中缀表达遍历完毕，但是栈中可能还有运算符没有出来，所以我们需要把栈中的元素一次放入队列。<br>最后的队列就是<code>&#123; 5, 3, 4, +, 2, *, 7, /, -&#125;</code></li>
-</ol>
-<p>这里要注意的就是，第十步中，和栈顶比较玩以后还要继续和新的栈顶进行比较，直到当前的运算符比栈顶等级高或栈为空为止</p>
-<h3 id="2-2-编码（Java）"><a href="#2-2-编码（Java）" class="headerlink" title="2.2.编码（Java）"></a>2.2.编码（Java）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DIGITAL = <span class="string">&quot;01234567890.&quot;</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String H_OPERATOR = <span class="string">&quot;*×/÷&quot;</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String L_OPERATOR = <span class="string">&quot;+-&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Queue&lt;String&gt; <span class="title">buildExpression</span><span class="params">(String originExpr)</span> </span>&#123;</span><br><span class="line">    String temp = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="comment">// 后缀表达式</span></span><br><span class="line">    Deque&lt;String&gt; suffix = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="comment">// 临时栈，用来存储括号里的表达式</span></span><br><span class="line">    Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    Character c = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; originExpr.length(); i++) &#123;</span><br><span class="line">        c = originExpr.charAt(i);</span><br><span class="line">        <span class="keyword">if</span> (DIGITAL.indexOf(c) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 如果遇到数字字符</span></span><br><span class="line">            <span class="keyword">for</span> (; i &lt; originExpr.length(); i++) &#123;</span><br><span class="line">                <span class="comment">// 循环遍历后面的字符，将所有连续的数字整合为一个数值</span></span><br><span class="line">                c = originExpr.charAt(i);</span><br><span class="line">                <span class="keyword">if</span> (DIGITAL.indexOf(c) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                    temp += c;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            suffix.add(temp);</span><br><span class="line">            temp = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            i--;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;(&quot;</span>.indexOf(c) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 如果遇到的是左括号, 直接放入栈中</span></span><br><span class="line">            stack.push(c);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;)&quot;</span>.indexOf(c) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 如果遇到右括号</span></span><br><span class="line">            <span class="comment">// 将栈里的所有字符都依次取出，直到碰到左括号</span></span><br><span class="line">            <span class="keyword">while</span> (!stack.isEmpty() &amp;&amp; stack.peek() != <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                suffix.add(stack.pop().toString());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 弹出左括号</span></span><br><span class="line">            stack.pop();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (H_OPERATOR.indexOf(c) &gt;= <span class="number">0</span> || L_OPERATOR.indexOf(c) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 遇到运算符</span></span><br><span class="line">            <span class="keyword">if</span> (stack.isEmpty() || <span class="string">&quot;(&quot;</span>.indexOf(stack.peek()) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">// 如果栈为空 或 为开括号，直接入栈</span></span><br><span class="line">                stack.push(c);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 如果栈顶为高等级运算符，或同低等级</span></span><br><span class="line">                <span class="keyword">while</span> (!stack.isEmpty() &amp;&amp; doPop(stack.peek(), c)) &#123;</span><br><span class="line">                    <span class="comment">// 栈顶运算符出栈</span></span><br><span class="line">                    suffix.add(stack.pop().toString());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 当前运算符入栈</span></span><br><span class="line">                stack.push(c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">        suffix.add(stack.pop().toString());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> suffix;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 判断栈顶是否为高等级运算符，或者是否同低等级</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> stackTop 栈顶元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> c 当前元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 是否需要进行栈顶弹出入队列</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">doPop</span><span class="params">(Character stackTop, Character c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ((H_OPERATOR.indexOf(stackTop) &gt;= <span class="number">0</span>)</span><br><span class="line">        || (L_OPERATOR.indexOf(stackTop) &gt;= <span class="number">0</span> &amp;&amp; L_OPERATOR.indexOf(c) &gt;= <span class="number">0</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第一种解法"><a href="#第一种解法" class="headerlink" title="第一种解法"></a>第一种解法</h2><p>这题看示例就能明白，就是找对称，括号必须是成对出现，如果不是就返回，闭合括号里的括号也必须是成对且对应。如**([)]**因为第一个闭合的 ) 里的括号不成对且不对应，返回false<br>所以这个题我们可以考虑使用栈来存储，左括号压入栈，右括号和栈顶的左括号匹配，对不上返回fasle，匹配结束判断栈是否为空（因为括号成对出现）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">char</span> c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            c = s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;(&#x27;</span> || c == <span class="string">&#x27;[&#x27;</span> || c == <span class="string">&#x27;&#123;&#x27;</span>)</span><br><span class="line">                <span class="comment">// 左括号入栈</span></span><br><span class="line">                stack.push(c);</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 右括号判断栈顶的括号是否匹配</span></span><br><span class="line">                <span class="keyword">if</span> (stack.empty())</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">&#x27;)&#x27;</span> &amp;&amp; stack.pop() != <span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">&#x27;]&#x27;</span> &amp;&amp; stack.pop() != <span class="string">&#x27;[&#x27;</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">&#x27;&#125;&#x27;</span> &amp;&amp; stack.pop() != <span class="string">&#x27;&#123;&#x27;</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.empty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第二种解法"><a href="#第二种解法" class="headerlink" title="第二种解法"></a>第二种解法</h2><p>括号是像洋葱那样一层一层的包裹起来的（如果你愿意一层一层的剥开我的心），那么最中间的绝对是一对且紧挨这的，如 **({[]})**，所以我们可以利用这个特性进行替换，最后只要长度大于0就说明是单个括号存在的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (s.indexOf(<span class="string">&quot;()&quot;</span>) != -<span class="number">1</span> || s.indexOf(<span class="string">&quot;[]&quot;</span>) != -<span class="number">1</span></span><br><span class="line">            || s.indexOf(<span class="string">&quot;&#123;&#125;&quot;</span>) != -<span class="number">1</span>) &#123;</span><br><span class="line">            s = s.replace(<span class="string">&quot;()&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">            s = s.replace(<span class="string">&quot;[]&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">            s = s.replace(<span class="string">&quot;&#123;&#125;&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.trim().length() == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>代码还有优化空间，如加入负数的运算，优化代码结构等，这里没有直接将队列转为字符串是因为为了方便进行后缀表达式的计算</p>
-<h2 id="3-对后缀表达式进行四则运算"><a href="#3-对后缀表达式进行四则运算" class="headerlink" title="3.对后缀表达式进行四则运算"></a>3.对后缀表达式进行四则运算</h2><h3 id="3-1-后缀表达式解析规则"><a href="#3-1-后缀表达式解析规则" class="headerlink" title="3.1.后缀表达式解析规则"></a>3.1.后缀表达式解析规则</h3><p>后缀表达式的运算就相对简单了，我们只需要遍历队列就行，遇到数字入栈，遇到运算符就对最上面两个数字进行四则运算<br><br>如上面的我们计算出来的后缀表达式是 <code>&#123; 5, 3, 4, +, 2, *, 7, /, -&#125;</code></p>
-<ol>
-<li>因为前三位都是数字，直接入栈。栈<code>[5, 3, 4]</code></li>
-<li>第四位是<code>+</code>运算符，计算栈中最上面两个，就是<code>3 + 4</code>，将结果<code>7</code>再入栈，栈<code>[5, 7]</code></li>
-<li>第五位是数字<code>2</code>，入栈。栈<code>[5, 7, 2]</code></li>
-<li>第六位是<code>*</code>运算符，计算<code>7 * 2</code>，结果入栈。栈<code>[5, 14]</code></li>
-<li>第七位是数字<code>7</code>，入栈。栈<code>[5, 14, 7]</code></li>
-<li>第八位是<code>/</code>运算符，计算<code>14 / 7</code>，结果入栈。栈<code>[5, 2]</code></li>
-<li>第八位是<code>-</code>运算符，计算<code>5 / 2</code>，结果入栈。栈<code>[3]</code></li>
-</ol>
-<p>遍历结束，所以最后的结果就是栈顶的<strong>3</strong><br><br>这里需要注意的一点就是，进行除法的运算时，先取出来的数是除数，第二个数才是被除数，如上面的第六步</p>
-<h3 id="3-2-编码（Java）"><a href="#3-2-编码（Java）" class="headerlink" title="3.2.编码（Java）"></a>3.2.编码（Java）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Double <span class="title">calcExpression</span><span class="params">(Queue&lt;String&gt; suffixExpr)</span> </span>&#123;</span><br><span class="line">    String regx = <span class="string">&quot;-?[0-9]+(\\.[0-9]+)?&quot;</span>;</span><br><span class="line">    Stack&lt;Double&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    String expr = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">while</span> (!suffixExpr.isEmpty()) &#123;</span><br><span class="line">        expr = suffixExpr.poll();</span><br><span class="line">        <span class="keyword">if</span> (expr.matches(regx)) &#123;</span><br><span class="line">            <span class="comment">// 遇到数值</span></span><br><span class="line">            stack.push(Double.parseDouble(expr));</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (L_OPERATOR.indexOf(expr) &gt;= <span class="number">0</span> || H_OPERATOR.indexOf(expr) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 遇到运算符</span></span><br><span class="line">            <span class="comment">// 取出第一和第二个数值</span></span><br><span class="line">            <span class="keyword">double</span> x = stack.pop();</span><br><span class="line">            <span class="keyword">double</span> y = stack.pop();</span><br><span class="line">            <span class="keyword">if</span> (expr.equals(<span class="string">&quot;-&quot;</span>)) &#123;</span><br><span class="line">                stack.push(y - x);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (expr.equals(<span class="string">&quot;+&quot;</span>)) &#123;</span><br><span class="line">                stack.push(y + x);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;*×&quot;</span>.indexOf(expr) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                stack.push(y * x);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;/÷&quot;</span>.indexOf(expr) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (x == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> ArithmeticException(<span class="string">&quot;/ by zero&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                stack.push(y / x);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> stack.pop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>虽然速度慢了点，但是也可以AC了</p>
 
   
   
@@ -516,7 +479,7 @@
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/>http://example.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/>http://example.com/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/</a></p>
               
             
           </blockquote>
@@ -533,7 +496,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-27T09:07:39+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-27T09:03:06+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年10月27日</p>
@@ -544,9 +507,6 @@
       
         
           
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%AE%97%E6%B3%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>算法</p></a></div>
-
 
         
       
@@ -558,7 +518,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/&title=前缀表达式转后缀表达 - 小树苗博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/&title=力扣-20-有效的括号（简单） - 小树苗博客&summary="
           
           >
           
@@ -570,7 +530,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/&title=前缀表达式转后缀表达 - 小树苗博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/&title=力扣-20-有效的括号（简单） - 小树苗博客&summary="
           
           >
           
@@ -582,7 +542,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/&title=前缀表达式转后缀表达 - 小树苗博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/&title=力扣-20-有效的括号（简单） - 小树苗博客&summary="
           
           >
           
@@ -612,18 +572,20 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>力扣-20-有效的括号（简单）</p>
+        <a class='prev' href='/Leetcode/%E5%8A%9B%E6%89%A3-912-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88%E4%B8%AD%E7%AD%89%EF%BC%89/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>力扣-912-排序数组（中等）</p>
           <p class='content'>
-20. 有效的括号
-给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]‘ 的字符串，判断字符串是否有效。有效字符串需满足：左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合...</p>
+给定一个整数数组 nums，将该数组升序排列。
+示例 1：输入：[5,2,3,1]输出：[1,2,3,5]  
+示例 2：输入：[5,1,1,2,0,0]输出：[0,0,1,1,2,5]  
+...</p>
         </a>
       
       
-        <a class='next' href='/Python/%E5%B0%86%E7%94%B5%E8%84%91%E4%B8%8A%E5%A4%8D%E5%88%B6%E7%9A%84%E6%96%87%E6%9C%AC%E6%8E%A8%E9%80%81%E7%BB%99iPhone/'>
-          <p class='title'>将电脑上复制的文本推送给iPhone<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>由于博主用的不是Mac，所以体验不到iCloud的云剪贴板功能
-有时候电脑上复制的链接或者文本需要在手机上操作，就需要经过聊天工具转发，很是繁琐。就用Python写了个工具，配合Bark使用，达...</p>
+        <a class='next' href='/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/'>
+          <p class='title'>前缀表达式转后缀表达<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>1.什么是后缀表达式
+百度百科：实现逆波兰式的算法，难度并不大，但为什么要将看似简单的中缀表达式转换为复杂的逆波兰式？原因就在于这个简单是相对人类的思维结构来说的，对计算机而言中序表达式是非常复...</p>
         </a>
       
     </div>
@@ -666,7 +628,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">1.什么是后缀表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%9E%84%E5%BB%BA%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">2.构建后缀表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E8%A7%84%E5%88%99"><span class="toc-text">2.1.前缀表达式转后缀表达式的规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%BC%96%E7%A0%81%EF%BC%88Java%EF%BC%89"><span class="toc-text">2.2.编码（Java）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AF%B9%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%9B%E8%A1%8C%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97"><span class="toc-text">3.对后缀表达式进行四则运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%A7%A3%E6%9E%90%E8%A7%84%E5%88%99"><span class="toc-text">3.1.后缀表达式解析规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E7%BC%96%E7%A0%81%EF%BC%88Java%EF%BC%89"><span class="toc-text">3.2.编码（Java）</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E8%A7%A3%E6%B3%95"><span class="toc-text">第一种解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E8%A7%A3%E6%B3%95"><span class="toc-text">第二种解法</span></a></li></ol>
     </div>
   </section>
 
@@ -686,7 +648,7 @@
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="前缀表达式转后缀表达";
+  pdata.postTitle="力扣-20-有效的括号（简单）";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 

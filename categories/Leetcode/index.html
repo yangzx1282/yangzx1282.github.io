@@ -5,6 +5,8 @@
   <!-- SEO相关 -->
   
     
+      <meta name="robots" content="noindex,follow">
+    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -19,9 +21,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>前缀表达式转后缀表达 - 小树苗博客</title>
-  
-    <meta name="keywords" content="java,算法">
+  <title>分类：Leetcode - 小树苗博客</title>
   
 
   
@@ -307,7 +307,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper post dock' style="display: none;">
+        <div id="full" class='cover-wrapper  dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -382,271 +382,185 @@
       <div class='body-wrapper' id="pjax-container">
         
 
+
 <div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-
-
-  
-  <div class="article-meta" id="top">
     
-    
-    
-      <h1 class="title">
-        前缀表达式转后缀表达
-      </h1>
-      <div class='new-meta-box'>
-        
-          
-            
-<div class='new-meta-item author'>
-  <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="">
-    <p>请设置文章作者</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class='new-meta-item category'>
-    <a class='notlink'>
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/">数据结构&算法</a>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年10月25日</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class="new-meta-item browse leancloud">
-    <a class='notlink'>
       
-      <div id="lc-pv" data-title="前缀表达式转后缀表达" data-path="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/">
-        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-        次浏览
-      </div>
-    </a>
-  </div>
-
-
+  <section class="post-list">
+    
+      
+        
           
+        
+          
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/Leetcode/%E5%8A%9B%E6%89%A3-1111-%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%B5%8C%E5%A5%97%E6%B7%B1%E5%BA%A6/">
+        力扣-1111-有效括号的嵌套深度
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        
+1111. 有效括号的嵌套深度
+题目太长了，我就不贴上来了  
+来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+欢迎来到一日一题的阅读理解，刚开始看到这个题，...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2020-10-25</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Leetcode/">Leetcode</a>
         
       </div>
-    
-  </div>
-
-
-  
-  <h2 id="1-什么是后缀表达式"><a href="#1-什么是后缀表达式" class="headerlink" title="1.什么是后缀表达式"></a>1.什么是后缀表达式</h2><blockquote>
-<p>百度百科：<br><br>实现逆波兰式的算法，难度并不大，但为什么要将看似简单的中缀表达式转换为复杂的逆波兰式？<br>原因就在于这个简单是相对人类的思维结构来说的，对计算机而言中序表达式是非常复杂的结构。<br>相对的，逆波兰式在计算机看来却是比较简单易懂的结构。因为计算机普遍采用的内存结构是栈式结构，它执行先进后出的顺序。</p>
-</blockquote>
-<p>后缀表达式就通过一定的排列顺序，将一个我们平时一眼就能看明白的数学算式转变为机器能够读懂的表达式。<br><br>例如：</p>
-<ul>
-<li><code>10 + 5 * 3</code>转变为后缀表达式就是<code>10 5 3 * +</code></li>
-<li><code>(5 + 3) * 2</code>转变为后缀表达式就是<code>5 3 + 2 *</code></li>
-</ul>
-<h2 id="2-构建后缀表达式"><a href="#2-构建后缀表达式" class="headerlink" title="2.构建后缀表达式"></a>2.构建后缀表达式</h2><h3 id="2-1-前缀表达式转后缀表达式的规则"><a href="#2-1-前缀表达式转后缀表达式的规则" class="headerlink" title="2.1.前缀表达式转后缀表达式的规则"></a>2.1.前缀表达式转后缀表达式的规则</h3><p>我们先用<code>5 - ( 3 + 4 ) * 2 / 7</code>来进行转换</p>
-<ol>
-<li>先构造一个模拟栈 stack，和一个模拟队列 queue，栈中存放的是临时运算符，队列存放的就是后缀表达式</li>
-<li>首先取出第一个字符 <code>5</code>，因为是数字，我们直接入队列。<br>队列中现在就是<code>&#123; 5 &#125;</code></li>
-<li>第二个字符是运算符 <code>-</code>，由于当前栈里没有元素，直接入栈。<br>栈中现在就是<code>[ - ]</code></li>
-<li>第三个字符是运算符 <code>(</code>，由于是开括号，运算级别最高，所以直接入栈。<br>栈中现在就是<code>[ -, ( ]</code></li>
-<li>第四个字符是数字 <code>3</code>，直接入队列。<br>队列中现在就是<code>&#123; 5, 3 &#125;</code></li>
-<li>第五个字符是运算符 <code>+</code>，由于栈顶是开括号，直接入栈。<br>栈中现在就是<code>[ -, (, + ]</code></li>
-<li>第六个字符是数字<code>4</code>，直接入队列。<br>队列中现在就是<code>&#123; 5, 3, 4 &#125;</code></li>
-<li>第七个字符是闭合（右）括号，这时就要将栈中所有运算符弹出来存进队列，结束条件就是当栈顶碰到开括号，所以循环以后栈为空。注意：开括号也需要弹出来，但是不用入队列<ul>
-<li>队列中现在就是<code>&#123; 5, 3, 4, + &#125;</code>。栈中现在就是<code>[ - ]</code></li>
-</ul>
-</li>
-<li>第八个字符是运算符<code>*</code>，和栈顶运算符进行比较，当前等级比栈顶的等级高，入栈。<br>栈中现在就是<code>[ -, * ]</code></li>
-<li>第九个字符是数字<code>2</code>，直接入队列。队列中现在就是<code>&#123; 5, 3, 4, +, 2&#125;</code></li>
-<li>第十个字符是运算符<code>/</code>，和栈顶运算符进行比较，当前等级和栈顶同等级。<ul>
-<li>栈顶弹出入队列。<code>&#123; 5, 3, 4, +, 2, *&#125;</code>。<br>栈中现在就是<code>[ - ]</code></li>
-<li>再继续和栈顶运算符（<code>-</code>）比较，当前等级比栈顶的等级高，入栈。<br>栈中现在就是<code>[ -, / ]</code></li>
-</ul>
-</li>
-<li>第十一个字符是数字<code>7</code>，直接入队列。<br>队列中现在就是<code>&#123; 5, 3, 4, +, 2, *, 7&#125;</code></li>
-<li>中缀表达遍历完毕，但是栈中可能还有运算符没有出来，所以我们需要把栈中的元素一次放入队列。<br>最后的队列就是<code>&#123; 5, 3, 4, +, 2, *, 7, /, -&#125;</code></li>
-</ol>
-<p>这里要注意的就是，第十步中，和栈顶比较玩以后还要继续和新的栈顶进行比较，直到当前的运算符比栈顶等级高或栈为空为止</p>
-<h3 id="2-2-编码（Java）"><a href="#2-2-编码（Java）" class="headerlink" title="2.2.编码（Java）"></a>2.2.编码（Java）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DIGITAL = <span class="string">&quot;01234567890.&quot;</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String H_OPERATOR = <span class="string">&quot;*×/÷&quot;</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String L_OPERATOR = <span class="string">&quot;+-&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Queue&lt;String&gt; <span class="title">buildExpression</span><span class="params">(String originExpr)</span> </span>&#123;</span><br><span class="line">    String temp = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="comment">// 后缀表达式</span></span><br><span class="line">    Deque&lt;String&gt; suffix = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="comment">// 临时栈，用来存储括号里的表达式</span></span><br><span class="line">    Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    Character c = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; originExpr.length(); i++) &#123;</span><br><span class="line">        c = originExpr.charAt(i);</span><br><span class="line">        <span class="keyword">if</span> (DIGITAL.indexOf(c) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 如果遇到数字字符</span></span><br><span class="line">            <span class="keyword">for</span> (; i &lt; originExpr.length(); i++) &#123;</span><br><span class="line">                <span class="comment">// 循环遍历后面的字符，将所有连续的数字整合为一个数值</span></span><br><span class="line">                c = originExpr.charAt(i);</span><br><span class="line">                <span class="keyword">if</span> (DIGITAL.indexOf(c) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                    temp += c;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            suffix.add(temp);</span><br><span class="line">            temp = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            i--;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;(&quot;</span>.indexOf(c) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 如果遇到的是左括号, 直接放入栈中</span></span><br><span class="line">            stack.push(c);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;)&quot;</span>.indexOf(c) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 如果遇到右括号</span></span><br><span class="line">            <span class="comment">// 将栈里的所有字符都依次取出，直到碰到左括号</span></span><br><span class="line">            <span class="keyword">while</span> (!stack.isEmpty() &amp;&amp; stack.peek() != <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                suffix.add(stack.pop().toString());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 弹出左括号</span></span><br><span class="line">            stack.pop();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (H_OPERATOR.indexOf(c) &gt;= <span class="number">0</span> || L_OPERATOR.indexOf(c) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 遇到运算符</span></span><br><span class="line">            <span class="keyword">if</span> (stack.isEmpty() || <span class="string">&quot;(&quot;</span>.indexOf(stack.peek()) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">// 如果栈为空 或 为开括号，直接入栈</span></span><br><span class="line">                stack.push(c);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 如果栈顶为高等级运算符，或同低等级</span></span><br><span class="line">                <span class="keyword">while</span> (!stack.isEmpty() &amp;&amp; doPop(stack.peek(), c)) &#123;</span><br><span class="line">                    <span class="comment">// 栈顶运算符出栈</span></span><br><span class="line">                    suffix.add(stack.pop().toString());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 当前运算符入栈</span></span><br><span class="line">                stack.push(c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">        suffix.add(stack.pop().toString());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> suffix;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 判断栈顶是否为高等级运算符，或者是否同低等级</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> stackTop 栈顶元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> c 当前元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 是否需要进行栈顶弹出入队列</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">doPop</span><span class="params">(Character stackTop, Character c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ((H_OPERATOR.indexOf(stackTop) &gt;= <span class="number">0</span>)</span><br><span class="line">        || (L_OPERATOR.indexOf(stackTop) &gt;= <span class="number">0</span> &amp;&amp; L_OPERATOR.indexOf(c) &gt;= <span class="number">0</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>代码还有优化空间，如加入负数的运算，优化代码结构等，这里没有直接将队列转为字符串是因为为了方便进行后缀表达式的计算</p>
-<h2 id="3-对后缀表达式进行四则运算"><a href="#3-对后缀表达式进行四则运算" class="headerlink" title="3.对后缀表达式进行四则运算"></a>3.对后缀表达式进行四则运算</h2><h3 id="3-1-后缀表达式解析规则"><a href="#3-1-后缀表达式解析规则" class="headerlink" title="3.1.后缀表达式解析规则"></a>3.1.后缀表达式解析规则</h3><p>后缀表达式的运算就相对简单了，我们只需要遍历队列就行，遇到数字入栈，遇到运算符就对最上面两个数字进行四则运算<br><br>如上面的我们计算出来的后缀表达式是 <code>&#123; 5, 3, 4, +, 2, *, 7, /, -&#125;</code></p>
-<ol>
-<li>因为前三位都是数字，直接入栈。栈<code>[5, 3, 4]</code></li>
-<li>第四位是<code>+</code>运算符，计算栈中最上面两个，就是<code>3 + 4</code>，将结果<code>7</code>再入栈，栈<code>[5, 7]</code></li>
-<li>第五位是数字<code>2</code>，入栈。栈<code>[5, 7, 2]</code></li>
-<li>第六位是<code>*</code>运算符，计算<code>7 * 2</code>，结果入栈。栈<code>[5, 14]</code></li>
-<li>第七位是数字<code>7</code>，入栈。栈<code>[5, 14, 7]</code></li>
-<li>第八位是<code>/</code>运算符，计算<code>14 / 7</code>，结果入栈。栈<code>[5, 2]</code></li>
-<li>第八位是<code>-</code>运算符，计算<code>5 / 2</code>，结果入栈。栈<code>[3]</code></li>
-</ol>
-<p>遍历结束，所以最后的结果就是栈顶的<strong>3</strong><br><br>这里需要注意的一点就是，进行除法的运算时，先取出来的数是除数，第二个数才是被除数，如上面的第六步</p>
-<h3 id="3-2-编码（Java）"><a href="#3-2-编码（Java）" class="headerlink" title="3.2.编码（Java）"></a>3.2.编码（Java）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Double <span class="title">calcExpression</span><span class="params">(Queue&lt;String&gt; suffixExpr)</span> </span>&#123;</span><br><span class="line">    String regx = <span class="string">&quot;-?[0-9]+(\\.[0-9]+)?&quot;</span>;</span><br><span class="line">    Stack&lt;Double&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    String expr = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">while</span> (!suffixExpr.isEmpty()) &#123;</span><br><span class="line">        expr = suffixExpr.poll();</span><br><span class="line">        <span class="keyword">if</span> (expr.matches(regx)) &#123;</span><br><span class="line">            <span class="comment">// 遇到数值</span></span><br><span class="line">            stack.push(Double.parseDouble(expr));</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (L_OPERATOR.indexOf(expr) &gt;= <span class="number">0</span> || H_OPERATOR.indexOf(expr) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 遇到运算符</span></span><br><span class="line">            <span class="comment">// 取出第一和第二个数值</span></span><br><span class="line">            <span class="keyword">double</span> x = stack.pop();</span><br><span class="line">            <span class="keyword">double</span> y = stack.pop();</span><br><span class="line">            <span class="keyword">if</span> (expr.equals(<span class="string">&quot;-&quot;</span>)) &#123;</span><br><span class="line">                stack.push(y - x);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (expr.equals(<span class="string">&quot;+&quot;</span>)) &#123;</span><br><span class="line">                stack.push(y + x);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;*×&quot;</span>.indexOf(expr) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                stack.push(y * x);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;/÷&quot;</span>.indexOf(expr) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (x == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> ArithmeticException(<span class="string">&quot;/ by zero&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                stack.push(y / x);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> stack.pop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-  
-  
-    
-    <div class='footer'>
       
-      
-      
-        <div class='copyright'>
-          <blockquote>
-            
-              
-                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-              
-            
-              
-                <p>本文永久链接是：<a href=http://example.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/>http://example.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/</a></p>
-              
-            
-          </blockquote>
+        <div>
+          <a class='readmore' href='/Leetcode/%E5%8A%9B%E6%89%A3-1111-%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%B5%8C%E5%A5%97%E6%B7%B1%E5%BA%A6/'>
+            阅读全文
+          </a>
         </div>
       
-      
     </div>
   
-  
-    
 
-
-  <div class='article-meta' id="bottom">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-27T09:07:39+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年10月27日</p>
-  </a>
 </div>
 
+          </div>
         
       
         
-          
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%AE%97%E6%B3%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>算法</p></a></div>
-
-
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/Leetcode/%E5%8A%9B%E6%89%A3-912-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88%E4%B8%AD%E7%AD%89%EF%BC%89/">
+        力扣-912-排序数组（中等）
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
         
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/&title=前缀表达式转后缀表达 - 小树苗博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/&title=前缀表达式转后缀表达 - 小树苗博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/&title=前缀表达式转后缀表达 - 小树苗博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
-          
-        </a>
-      
-    
-      
-    
+给定一个整数数组 nums，将该数组升序排列。
+示例 1：输入：[5,2,3,1]输出：[1,2,3,5]  
+示例 2：输入：[5,1,1,2,0,0]输出：[0,0,1,1,2,5]  
+提示：1 &lt;= A.length &lt;= 10000-50000 &lt;= A[i] &lt;= 50000  
+来源：力扣（LeetCode）链接：https://leetcode-cn...
       
     
   </div>
-</div>
-
-
-
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
         
+        <time>2020-10-25</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Leetcode/">Leetcode</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/Leetcode/%E5%8A%9B%E6%89%A3-912-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88%E4%B8%AD%E7%AD%89%EF%BC%89/'>
+            阅读全文
+          </a>
+        </div>
       
     </div>
-  </div>
-
-
-  
   
 
-  
-    <div class="prev-next">
+</div>
+
+          </div>
+        
       
-        <a class='prev' href='/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>力扣-20-有效的括号（简单）</p>
-          <p class='content'>
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/">
+        力扣-20-有效的括号（简单）
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        
 20. 有效的括号
-给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]‘ 的字符串，判断字符串是否有效。有效字符串需满足：左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合...</p>
-        </a>
+给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]‘ 的字符串，判断字符串是否有效。有效字符串需满足：左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串。  
+示例 1:输入: “()”输出: true示例 2:输入: “()[]{}”输出: true示例 3:输入: “(]“输出: false示例 4:输入: “(...
       
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2020-10-25</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Leetcode/">Leetcode</a>
+        
+      </div>
       
-        <a class='next' href='/Python/%E5%B0%86%E7%94%B5%E8%84%91%E4%B8%8A%E5%A4%8D%E5%88%B6%E7%9A%84%E6%96%87%E6%9C%AC%E6%8E%A8%E9%80%81%E7%BB%99iPhone/'>
-          <p class='title'>将电脑上复制的文本推送给iPhone<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>由于博主用的不是Mac，所以体验不到iCloud的云剪贴板功能
-有时候电脑上复制的链接或者文本需要在手机上操作，就需要经过聊天工具转发，很是繁琐。就用Python写了个工具，配合Bark使用，达...</p>
-        </a>
+        <div>
+          <a class='readmore' href='/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/'>
+            阅读全文
+          </a>
+        </div>
       
     </div>
   
-</article>
 
-
-  
-
-  <article class="post white-box reveal shadow" id="comments">
-    <p ct><i class='fas fa-comments'></i> 评论</p>
-    
-    <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-  </article>
+          </div>
+        
+      
+    
+  </section>
+  
+    
+  
 
 
-
-
-
-
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -654,28 +568,151 @@
     
     
 
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">小树苗博客</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="mailto:me@xxx.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/volantis-x/"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="/"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
 
+  
 
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+  
+    
+    
+  
+
+  <section class="widget category shadow desktop">
     
   <header>
     
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
     
   </header>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">1.什么是后缀表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%9E%84%E5%BB%BA%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">2.构建后缀表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E8%A7%84%E5%88%99"><span class="toc-text">2.1.前缀表达式转后缀表达式的规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%BC%96%E7%A0%81%EF%BC%88Java%EF%BC%89"><span class="toc-text">2.2.编码（Java）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AF%B9%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%9B%E8%A1%8C%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97"><span class="toc-text">3.对后缀表达式进行四则运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%A7%A3%E6%9E%90%E8%A7%84%E5%88%99"><span class="toc-text">3.1.后缀表达式解析规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E7%BC%96%E7%A0%81%EF%BC%88Java%EF%BC%89"><span class="toc-text">3.2.编码（Java）</span></a></li></ol></li></ol>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/Java/" href="/categories/Java/"
+            id="categoriesJava"
+            ><div class='name'>Java</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Leetcode/" href="/categories/Leetcode/"
+            id="categoriesLeetcode"
+            ><div class='name'>Leetcode</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Linux/" href="/categories/Linux/"
+            id="categoriesLinux"
+            ><div class='name'>Linux</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Python/" href="/categories/Python/"
+            id="categoriesPython"
+            ><div class='name'>Python</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Vue/" href="/categories/Vue/"
+            id="categoriesVue"
+            ><div class='name'>Vue</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/"
+            id="categoriesE695B0E68DAEE7BB93E69E84-E7AE97E6B395"
+            ><div class='name'>数据结构&算法</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
     </div>
   </section>
 
 
   
 
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Vue/" style="font-size: 14px; color: #999">Vue</a> <a href="/tags/java/" style="font-size: 14px; color: #999">java</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a>
+    </div>
+  </section>
+
+
+  
+
+  
+
 
 </aside>
-
 
 
         
@@ -685,8 +722,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=true;
-  pdata.postTitle="前缀表达式转后缀表达";
+  pdata.ispage=false;
+  pdata.postTitle="";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
