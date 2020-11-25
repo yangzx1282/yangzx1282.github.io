@@ -19,7 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>力扣-20-有效的括号（简单） - 小树苗博客</title>
+  <title>Mysql8忘记密码解决办法 - 小树苗博客</title>
+  
+    <meta name="keywords" content="Mysql">
   
 
   
@@ -391,7 +393,7 @@
     
     
       <h1 class="title">
-        力扣-20-有效的括号（简单）
+        Mysql8忘记密码解决办法
       </h1>
       <div class='new-meta-box'>
         
@@ -408,13 +410,6 @@
         
           
             
-  <div class='new-meta-item category'>
-    <a class='notlink'>
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/Leetcode/">Leetcode</a>
-    </a>
-  </div>
-
 
           
         
@@ -422,7 +417,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年10月25日</p>
+    <p>发布于：2020年11月25日</p>
   </a>
 </div>
 
@@ -433,7 +428,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="力扣-20-有效的括号（简单）" data-path="/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/">
+      <div id="lc-pv" data-title="Mysql8忘记密码解决办法" data-path="/Mysql8%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -450,18 +445,16 @@
 
 
   
-  <blockquote>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-parentheses/">20. 有效的括号</a></p>
-<p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]‘ 的字符串，判断字符串是否有效。<br>有效字符串需满足：<br>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串。  </p>
-<p>示例 1:<br>输入: “()”<br>输出: true<br>示例 2:<br>输入: “()[]{}”<br>输出: true<br>示例 3:<br>输入: “(]“<br>输出: false<br>示例 4:<br>输入: “([)]“<br>输出: false<br>示例 5:<br>输入: “{[]}”<br>输出: true  </p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-parentheses">https://leetcode-cn.com/problems/valid-parentheses</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-</blockquote>
-<h2 id="第一种解法"><a href="#第一种解法" class="headerlink" title="第一种解法"></a>第一种解法</h2><p>这题看示例就能明白，就是找对称，括号必须是成对出现，如果不是就返回，闭合括号里的括号也必须是成对且对应。如**([)]**因为第一个闭合的 ) 里的括号不成对且不对应，返回false<br>所以这个题我们可以考虑使用栈来存储，左括号压入栈，右括号和栈顶的左括号匹配，对不上返回fasle，匹配结束判断栈是否为空（因为括号成对出现）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">char</span> c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            c = s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;(&#x27;</span> || c == <span class="string">&#x27;[&#x27;</span> || c == <span class="string">&#x27;&#123;&#x27;</span>)</span><br><span class="line">                <span class="comment">// 左括号入栈</span></span><br><span class="line">                stack.push(c);</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 右括号判断栈顶的括号是否匹配</span></span><br><span class="line">                <span class="keyword">if</span> (stack.empty())</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">&#x27;)&#x27;</span> &amp;&amp; stack.pop() != <span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">&#x27;]&#x27;</span> &amp;&amp; stack.pop() != <span class="string">&#x27;[&#x27;</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">&#x27;&#125;&#x27;</span> &amp;&amp; stack.pop() != <span class="string">&#x27;&#123;&#x27;</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.empty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="第二种解法"><a href="#第二种解法" class="headerlink" title="第二种解法"></a>第二种解法</h2><p>括号是像洋葱那样一层一层的包裹起来的（如果你愿意一层一层的剥开我的心），那么最中间的绝对是一对且紧挨这的，如 **({[]})**，所以我们可以利用这个特性进行替换，最后只要长度大于0就说明是单个括号存在的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (s.indexOf(<span class="string">&quot;()&quot;</span>) != -<span class="number">1</span> || s.indexOf(<span class="string">&quot;[]&quot;</span>) != -<span class="number">1</span></span><br><span class="line">            || s.indexOf(<span class="string">&quot;&#123;&#125;&quot;</span>) != -<span class="number">1</span>) &#123;</span><br><span class="line">            s = s.replace(<span class="string">&quot;()&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">            s = s.replace(<span class="string">&quot;[]&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">            s = s.replace(<span class="string">&quot;&#123;&#125;&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.trim().length() == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>虽然速度慢了点，但是也可以AC了</p>
+  <h1 id="Mysql8-忘记密码的解决办法"><a href="#Mysql8-忘记密码的解决办法" class="headerlink" title="Mysql8 忘记密码的解决办法"></a>Mysql8 忘记密码的解决办法</h1><ol>
+<li>先暂停服务<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 首先暂停服务</span></span><br><span class="line">net stop mysql</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 以绕过权限表的形式开启mysql服务</span></span><br><span class="line">mysqld --console --skip-grant-tables --shared-memory</span><br></pre></td></tr></table></figure></li>
+<li>开启服务后，打开一个新的命令窗口<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 无需输入密码（在输入密码处可直接回车进入）</span></span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></li>
+<li>修改密码为空，注意<code>authentication_string</code>的值是空字符串<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql;</span><br><span class="line"><span class="keyword">UPDATE</span> mysql.user <span class="keyword">SET</span> authentication_string=<span class="string">&#x27;&#x27;</span> <span class="keyword">WHERE</span> <span class="keyword">user</span>=<span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<li>此刻允许下面sql可以看到密码以及重置为空<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> host,<span class="keyword">user</span>,authentication_string <span class="keyword">from</span> mysql.user;</span><br></pre></td></tr></table></figure></li>
+<li>关闭之前保留的那个控制台窗口和现在使用的这个控制台窗口一共关闭两个控制台窗口。然后再打开一个新的窗口，启动MySQL的服务。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动mysql</span></span><br><span class="line">net start mysql</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 无需密码登录</span></span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></li>
+<li>修改密码<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">&#x27;123456&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<li>如果第六步的修改密码出错可以使用下面的sql<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">&#x27;123456&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
   
   
@@ -479,7 +472,7 @@
               
             
               
-                <p>本文永久链接是：<a href=https://www.xiaosm.cn/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/>https://www.xiaosm.cn/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/</a></p>
+                <p>本文永久链接是：<a href=https://www.xiaosm.cn/Mysql8%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/>https://www.xiaosm.cn/Mysql8%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</a></p>
               
             
           </blockquote>
@@ -496,10 +489,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-27T10:23:46+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-25T13:56:40+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年10月27日</p>
+    <p>更新于：2020年11月25日</p>
   </a>
 </div>
 
@@ -507,6 +500,9 @@
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Mysql/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Mysql</p></a></div>
+
 
         
       
@@ -518,7 +514,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.xiaosm.cn/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/&title=力扣-20-有效的括号（简单） - 小树苗博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.xiaosm.cn/Mysql8%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/&title=Mysql8忘记密码解决办法 - 小树苗博客&summary="
           
           >
           
@@ -530,7 +526,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.xiaosm.cn/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/&title=力扣-20-有效的括号（简单） - 小树苗博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.xiaosm.cn/Mysql8%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/&title=Mysql8忘记密码解决办法 - 小树苗博客&summary="
           
           >
           
@@ -542,7 +538,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.xiaosm.cn/Leetcode/%E5%8A%9B%E6%89%A3-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89/&title=力扣-20-有效的括号（简单） - 小树苗博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.xiaosm.cn/Mysql8%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/&title=Mysql8忘记密码解决办法 - 小树苗博客&summary="
           
           >
           
@@ -572,20 +568,14 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/Leetcode/%E5%8A%9B%E6%89%A3-912-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88%E4%B8%AD%E7%AD%89%EF%BC%89/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>力扣-912-排序数组（中等）</p>
-          <p class='content'>
-给定一个整数数组 nums，将该数组升序排列。
-示例 1：输入：[5,2,3,1]输出：[1,2,3,5]  
-示例 2：输入：[5,1,1,2,0,0]输出：[0,0,1,1,2,5]  
-...</p>
-        </a>
       
-      
-        <a class='next' href='/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/'>
-          <p class='title'>前缀表达式转后缀表达<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>1.什么是后缀表达式
-百度百科：实现逆波兰式的算法，难度并不大，但为什么要将看似简单的中缀表达式转换为复杂的逆波兰式？原因就在于这个简单是相对人类的思维结构来说的，对计算机而言中序表达式是非常复...</p>
+        <a class='next' href='/%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC%E6%95%99%E7%A8%8B/'>
+          <p class='title'>油猴插件安装脚本教程<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>油猴脚本安装教程=&gt;https://www.xiaosm.cn/archives/4
+
+脚本探索大门https://greasyfork.org/zh-CN
+
+先推荐一个脚本——创新创业就...</p>
         </a>
       
     </div>
@@ -628,7 +618,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E8%A7%A3%E6%B3%95"><span class="toc-text">第一种解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E8%A7%A3%E6%B3%95"><span class="toc-text">第二种解法</span></a></li></ol>
+        
     </div>
   </section>
 
@@ -648,7 +638,7 @@
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="力扣-20-有效的括号（简单）";
+  pdata.postTitle="Mysql8忘记密码解决办法";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 

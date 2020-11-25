@@ -21,7 +21,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：java - 小树苗博客</title>
+  <title>标签：Java - 小树苗博客</title>
   
 
   
@@ -406,18 +406,17 @@
   
     
     <h2 class="article-title" >
-      <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/">
-        前缀表达式转后缀表达
+      <a href="/Java/%E5%85%B3%E4%BA%8EJackson%E6%B3%A8%E8%A7%A3-JsonIgnore%E7%94%A8%E5%9C%A8getter%E5%92%8Csetter%E6%96%B9%E6%B3%95%E4%B8%8A%E5%A4%B1%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
+        关于Jackson注解@JsonIgnore用在getter和setter方法上失效的解决办法
       </a>
     </h2>
   
   <div class='md'>
     
       
-        1.什么是后缀表达式
-百度百科：实现逆波兰式的算法，难度并不大，但为什么要将看似简单的中缀表达式转换为复杂的逆波兰式？原因就在于这个简单是相对人类的思维结构来说的，对计算机而言中序表达式是非常复杂的结构。相对的，逆波兰式在计算机看来却是比较简单易懂的结构。因为计算机普遍采用的内存结构是栈式结构，它执行先进后出的顺序。
-
-后缀表达式就通过一定的排列顺序，将一个我们平时一眼就能看明白的数学算式转...
+        这两天在写项目的时候，有一个需求时用户信息的资料查询，只允许从JSON字符串序列化成Java对象，而Java对象转为JSON字符串应该时应该忽略。
+经了解然后使用了@JsonIgnore注解
+1234567891011121314@TableName(value = &quot;user&quot;)public class User extends BaseEntity implement...
       
     
   </div>
@@ -428,12 +427,12 @@
         <time>2020-10-25</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/">数据结构&算法</a>
+          <a class="category-link" href="/categories/Java/">Java</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE/'>
+          <a class='readmore' href='/Java/%E5%85%B3%E4%BA%8EJackson%E6%B3%A8%E8%A7%A3-JsonIgnore%E7%94%A8%E5%9C%A8getter%E5%92%8Csetter%E6%96%B9%E6%B3%95%E4%B8%8A%E5%A4%B1%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/'>
             阅读全文
           </a>
         </div>
@@ -596,7 +595,7 @@
 
 
     <div class='content'>
-      <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Vue/" style="font-size: 14px; color: #999">Vue</a> <a href="/tags/java/" style="font-size: 14px; color: #999">java</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a>
+      <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Mysql/" style="font-size: 14px; color: #999">Mysql</a> <a href="/tags/Vue/" style="font-size: 14px; color: #999">Vue</a> <a href="/tags/java/" style="font-size: 14px; color: #999">java</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a>
     </div>
   </section>
 
@@ -1692,6 +1691,20 @@ document.addEventListener("pjax:success", listennSidebarTOC);
       } catch (e) {
         console.log(e);
       }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>
+  }
 	  
     });
 
